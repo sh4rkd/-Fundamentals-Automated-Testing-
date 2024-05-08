@@ -13,7 +13,7 @@ Before getting started, make sure you have Node.js and npm installed on your sys
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/sh4rkd/js-automated-testing.git
+   git clone --single-branch --branch ui-tests-home-tasks https://github.com/sh4rkd/js-automated-testing.git
    ```
 
 2. Navigate to the project directory:
