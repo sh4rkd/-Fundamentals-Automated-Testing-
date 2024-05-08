@@ -13,13 +13,13 @@ Before getting started, make sure you have Node.js and npm installed on your sys
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/sh4rkd/-Fundamentals-Automated-Testing-.git
+   git clone https://github.com/sh4rkd/js-automated-testing.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd -Fundamentals-Automated-Testing-
+   cd js-automated-testing
    ```
 
 3. Install project dependencies:
@@ -28,53 +28,46 @@ Before getting started, make sure you have Node.js and npm installed on your sys
    npm install
    ```
 
+## Usage
+
+To run the automated tests, you can use the following command:
+
+```bash
+npm run wdio
+```
+
+This command will execute the automated tests using WDIO (WebdriverIO) and Mocha based on the configuration in `wdio.conf.cjs`.
+
 ## Project Structure
 
 The project follows an organized structure to facilitate development and maintenance of automated tests. Below is the main directory structure:
 
 ```
--Fundamentals-Automated-Testing-
+js-automated-testing/
 │
-├── app/
-│   └── ...               # Application code
-│
-├── test/
-│   ├── numbers-validator/   # Test files for numbers-validator module
-│   │   └── ...             # Test specification files
+├── node_modules/                 # Installed npm packages
+├── screenshots/                  # Screenshots captured during tests
+├── test/                         # Test files and configurations
+│   ├── pageobjects/              # Page Object Model (POM) files
+│   │   │  pasteBin/              # Page objects for the PasteBin page
+│   │   │   ├── page.js           # Page object for generic web page interactions
+│   │   │   └── pasteBin.page.js  # Page object for interactions specific to PasteBin
+│   │   └── ...                   # Page object files
 │   │
-│   ├── ...                 # Other test files and directories
-│   │
-│   └── mocharc.json        # Mochawesome configuration
+│   ├── specs/                 # Test specifications
+│   │   │  pasteBin.spec.js    # Automated tests for the PasteBin functionality
+│   └── └── ...                # Test files (specifications)
 │
-├── .c8rc.json              # c8 configuration
-├── .eslintrc.json          # ESLint configuration
-├── .gitignore              # Git ignore file
-├── .mocharc.json           # Mocha configuration
-├── eslint.config.js        # ESLint configuration file
-├── eslint.config.mjs        # ESLint configuration file (mjs format)
-├── package-lock.json       # npm package lock file
-└── package.json             # npm configuration file
+├── .gitignore             # Git ignore file
+├── package-lock.json      # npm package lock file
+├── package.json           # npm configuration file
+├── README.md              # Project README file (you are here)
+└── wdio.conf.cjs          # WDIO (WebdriverIO) configuration file 
 ```
-
-## Usage
-
-To run the automated tests and generate reports, you can use the following commands:
-
-- To run all tests:
-
-  ```bash
-  npm test
-  ```
-
-- To generate a code coverage report:
-
-  ```bash
-  npm run coverage
-  ```
 
 ## Contribution
 
-We welcome contributions to improve this project. If you wish to contribute, please follow these steps:
+Contributions to improve this project are welcome. If you wish to contribute, please follow these steps:
 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature/new-feature`).
@@ -84,7 +77,8 @@ We welcome contributions to improve this project. If you wish to contribute, ple
 
 ## Contact
 
-For any inquiries or suggestions related to this project, feel free to contact us at:
+For any inquiries or suggestions related to this project, feel free to contact:
 
-- Email: developer@fredmiramontes.dev
-- Website: www.epam.com
+- Author: Fred Miramontes
+- Email: [developer@fredmiramontes.dev](mailto:developer@fredmiramontes.dev)
+- Website: [www.epam.com](https://www.epam.com)
