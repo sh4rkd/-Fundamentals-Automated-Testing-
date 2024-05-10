@@ -13,7 +13,7 @@ Before getting started, make sure you have Node.js and npm installed on your sys
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone --single-branch --branch ui-tests-home-tasks https://github.com/sh4rkd/js-automated-testing.git
+   git clone --single-branch --branch webdriver-task-2 https://github.com/sh4rkd/js-automated-testing.git
    ```
 
 2. Navigate to the project directory:
@@ -50,13 +50,15 @@ js-automated-testing/
 ├── test/                         # Test files and configurations
 │   ├── pageobjects/              # Page Object Model (POM) files
 │   │   │  pasteBin/              # Page objects for the PasteBin page
-│   │   │   ├── page.js           # Page object for generic web page interactions
 │   │   │   └── pasteBin.page.js  # Page object for interactions specific to PasteBin
 │   │   └── ...                   # Page object files
 │   │
-│   ├── specs/                 # Test specifications
-│   │   │  pasteBin.spec.js    # Automated tests for the PasteBin functionality
-│   └── └── ...                # Test files (specifications)
+│   ├── specs/                    # Test specifications
+│   │   │  pasteBin.spec.js       # Automated tests for the PasteBin functionality
+│   └── └── ...                   # Test files (specifications)
+│
+├── utils/                        # Utils files
+│   └── page.js                   # Page object for generic web page interactions
 │
 ├── .gitignore             # Git ignore file
 ├── package-lock.json      # npm package lock file
