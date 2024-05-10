@@ -1,12 +1,12 @@
 import { expect } from '@wdio/globals';
 import PasteBinPage from '../pageobjects/pasteBin/pasteBin.page.js';
 
-describe('PasteBin Automation', () => {
+describe('Automated Testing Suite for PasteBin', () => {
     beforeEach(async() => {
         await PasteBinPage.open('https://pastebin.com/');
     });
 
-    it.skip('should create a new paste with specified attributes', async () => {
+    it.skip('should create a new paste with specified attributes and validate the title', async () => {
         const message = 'Hello from WebDriver';
         const expiration = '10 Minutes';
         const title = 'helloweb';
@@ -16,7 +16,7 @@ describe('PasteBin Automation', () => {
         await expect(PasteBinPage.getPasteTitle()).toHaveText('helloweb');
     });
     
-    it('should create a new paste with specified attributes', async () => {
+    it('should create a new paste with specified attributes, validate highlighting, and check code content', async () => {
         const code =`git config --global user.name  "New Sheriff in Town"
 git reset $(git commit-tree HEAD^{tree} -m "Legacy code")
 git push origin master --force`;
