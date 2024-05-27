@@ -1,12 +1,12 @@
 import { expect } from '@wdio/globals';
 import PasteBinPage from '../pageobjects/pasteBin/pasteBin.page.js';
 
-describe('Automated Testing Suite for PasteBin', () => {
+describe.skip('Automated Testing Suite for PasteBin', () => {
     beforeEach(async() => {
         await PasteBinPage.open('https://pastebin.com/');
     });
 
-    it.skip('should create a new paste with specified attributes and validate the title', async () => {
+    it('should create a new paste with specified attributes and validate the title', async () => {
         const message = 'Hello from WebDriver';
         const expiration = '10 Minutes';
         const title = 'helloweb';

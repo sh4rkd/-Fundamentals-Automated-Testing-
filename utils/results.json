@@ -1,0 +1,11 @@
+{
+    "Number of Instances": "4",
+    "Operating System / Software": "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)",
+    "Provisioning Model": "Regular",
+    "Machine type": "n1-standard-8, vCPUs: 8, RAM: 30 GB",
+    "GPU Model": "NVIDIA TESLA P100",
+    "Number of GPUs": "1",
+    "Local SSD": "2x375 GB",
+    "Region": "Netherlands (europe-west4)",
+    "Committed use discount options": "1 year"
+}
