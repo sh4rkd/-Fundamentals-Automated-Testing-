@@ -13,7 +13,7 @@ Before getting started, make sure you have Node.js and npm installed on your sys
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone --single-branch --branch webdriver-task-2 https://github.com/sh4rkd/js-automated-testing.git
+   git clone --single-branch --branch webdriver-task-3 https://github.com/sh4rkd/-Fundamentals-Automated-Testing-.git
    ```
 
 2. Navigate to the project directory:
