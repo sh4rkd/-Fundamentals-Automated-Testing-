@@ -13,13 +13,13 @@ Before getting started, make sure you have Node.js and npm installed on your sys
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone --single-branch --branch webdriver-task-2 https://github.com/sh4rkd/js-automated-testing.git
+   git clone --single-branch --branch framework-task https://github.com/sh4rkd/-Fundamentals-Automated-Testing-.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd js-automated-testing
+   cd -Fundamentals-Automated-Testing-
    ```
 
 3. Install project dependencies:
@@ -28,43 +28,90 @@ Before getting started, make sure you have Node.js and npm installed on your sys
    npm install
    ```
 
+## Configuration
+
+Before running the tests, ensure you have a `.env` file in the root directory with the following content:
+
+```plaintext
+GOOGLE_ENV=
+```
+
+To run the tests in the production environment, set `GOOGLE_ENV` to `production`:
+
+```plaintext
+GOOGLE_ENV=production
+```
+
+If `GOOGLE_ENV` is not set, the tests will default to the `test` environment based on the following code:
+
+```javascript
+const environment = process.env.GOOGLE_ENV || 'test';
+const settings = require(`./test/config/config.${environment}.json`);
+```
+
 ## Usage
 
-To run the automated tests, you can use the following command:
+To run the automated tests, you can use the following commands:
+
+### Main Tests
 
 ```bash
 npm run wdio
 ```
 
-This command will execute the automated tests using WDIO (WebdriverIO) and Mocha based on the configuration in `wdio.conf.cjs`.
+This command will execute the main automated tests using WDIO (WebdriverIO) and Mocha based on the configuration in `wdio.conf.cjs`.
+
+### Smoke Tests
+
+```bash
+npm run smoke
+```
+
+This command will execute the smoke tests.
+
+### Sanity Tests
+
+```bash
+npm run sanity
+```
+
+This command will execute the sanity tests.
 
 ## Project Structure
 
 The project follows an organized structure to facilitate development and maintenance of automated tests. Below is the main directory structure:
 
 ```
-js-automated-testing/
+-Fundamentals-Automated-Testing-/
 │
 ├── node_modules/                 # Installed npm packages
-├── screenshots/                  # Screenshots captured during tests
+├── screenshots/                  # Screenshots 
 ├── test/                         # Test files and configurations
-│   ├── pageobjects/              # Page Object Model (POM) files
-│   │   │  pasteBin/              # Page objects for the PasteBin page
-│   │   │   └── pasteBin.page.js  # Page object for interactions specific to PasteBin
-│   │   └── ...                   # Page object files
+│   ├── config/                   # Configuration files for environments
+│   │   ├── config.production.json  # Production environment configuration
+│   │   └── config.test.json        # Test environment configuration
 │   │
-│   ├── specs/                    # Test specifications
-│   │   │  pasteBin.spec.js       # Automated tests for the PasteBin functionality
-│   └── └── ...                   # Test files (specifications)
+│   ├── pageobjects/              # Page Object Model (POM) files
+│   │   └── cloud.google/         # Page objects for the Cloud Google page
+│   │       └── cloudGoogle.page.js  # Page object for interactions specific to Cloud Google
+│   │
+│   ├── sanity/                   # Sanity test specifications
+│   │   └── cloudGoogleSanity.spec.js  # Sanity tests for Cloud Google
+│   │
+│   ├── smoke/                    # Smoke test specifications
+│   │   └── cloudGoogleSmoke.spec.js  # Smoke tests for Cloud Google
+│   │
+│   └── specs/                    # General test specifications
+│       └── cloudGoogle.spec.js   # General tests for Cloud Google
 │
-├── utils/                        # Utils files
+├── utils/                        # Utility files
 │   └── page.js                   # Page object for generic web page interactions
 │
-├── .gitignore             # Git ignore file
-├── package-lock.json      # npm package lock file
-├── package.json           # npm configuration file
-├── README.md              # Project README file (you are here)
-└── wdio.conf.cjs          # WDIO (WebdriverIO) configuration file 
+├── .gitignore                    # Git ignore file
+├── package-lock.json             # npm package lock file
+├── package.json                  # npm configuration file
+├── README.md                     # Project README file (you are here)
+└── wdio.conf.cjs                 # WDIO (WebdriverIO) configuration file 
 ```
 
 ## Contribution

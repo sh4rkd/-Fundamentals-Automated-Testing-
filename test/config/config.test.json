@@ -1,0 +1,16 @@
+{
+    "search": "Google Cloud Platform Pricing Calculator",
+    "options": {       
+        "Number of Instances": "8",
+        "Operating System / Software": "Paid: Ubuntu Pro",
+        "Provisioning Model": "Spot (Preemptible VM)",
+        "Machine Family": "General Purpose",
+        "Series": "N1",
+        "Machine type": "n1-highmem-96",
+        "GPU Model": "NVIDIA TESLA K80",
+        "Number of GPUs": "8",
+        "Local SSD": "24x375 GB",
+        "Region": "Taiwan (asia-east1)",
+        "Committed use discount options": "3 years"
+    }
+}

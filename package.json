@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "wdio": "wdio run ./wdio.conf.cjs"
+    "wdio": "wdio run ./wdio.conf.cjs",
+    "smoke": "npx wdio run wdio.conf.cjs --suite smoke",
+    "sanity": "npx wdio run wdio.conf.cjs --suite sanity"
   },
   "keywords": [],
   "author": "Fred Miramontes",
@@ -16,5 +18,8 @@
     "@wdio/local-runner": "^8.36.1",
     "@wdio/mocha-framework": "^8.36.1",
     "@wdio/spec-reporter": "^8.36.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }

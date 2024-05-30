@@ -23,7 +23,7 @@ class CloudGoogle extends Page {
 
 
 
-    async createNewEstimate({ search: inputSearch, numberOfInstances, options }) {
+    async createNewEstimate({ search: inputSearch, options }) {
         try {
             await this.searchIconElement.waitForExist();
             await this.searchIconElement.click();
@@ -41,12 +41,13 @@ class CloudGoogle extends Page {
             await this.computeEngineElement.waitForExist();
             await this.computeEngineElement.click();
 
-            for (let i = 0; i < numberOfInstances - 1; i++) {
+            for (let i = 0; i < options["Number of Instances"] - 1; i++) {
                 await this.addInstancesButton.click();
             }
 
             for (const [label, option] of Object.entries(options)) {
-                await new Promise(resolve => setTimeout(resolve, 1000));  
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                if(label === 'Number of Instances')continue  
                 if(label === 'Machine type')await this.addGPUsButton.click()
                 if (label === 'Provisioning Model' || label === 'Committed use discount options') {
                     await this.buttonClickerElement({ label, option });
@@ -117,7 +118,7 @@ class CloudGoogle extends Page {
             "Number of Instances": await this.numberOfInstancesValue.getText(),
             "Operating System / Software": await this.operatingSystemValue.getText(),
             "Provisioning Model": await this.provisioningModelValue.getText(),
-            "Machine type": await this.machineTypeValue.getText(),
+            "Machine type": (await this.machineTypeValue.getText()).split(",")[0],
             "GPU Model": await this.gpuModelValue.getText(),
             "Number of GPUs": await this.numberOfGPUsValue.getText(),
             "Local SSD": await this.localSSDValue.getText(),
@@ -125,6 +126,8 @@ class CloudGoogle extends Page {
             "Committed use discount options": await this.committedUseDiscountOptionsValue.getText()
         }
     }
+
+    
 }
 
 export default new CloudGoogle();

@@ -1,3 +1,7 @@
+require('dotenv').config();
+const environment = process.env.GOOGLE_ENV || 'test';
+const settings = require(`./test/config/config.${environment}.json`);
+
 exports.config = {
     //
     // ====================
@@ -23,6 +27,10 @@ exports.config = {
     specs: [
         './test/specs/**/*.js'
     ],
+    suites: {
+        sanity: ['./test/sanity/**/*.js'],
+        smoke: ['./test/smoke/**/*.js'],
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -184,8 +192,10 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        global.settings = settings;
+        global.environment = environment;
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name
@@ -226,8 +236,17 @@ exports.config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: function(test, context, { error, result, duration, passed, retries }) {
+        if (error) {
+            const filename = test.title.replace(/\s+/g, '-').toLowerCase();
+            import('./utils/page.js').then(({ default: Page }) => {
+                const page = new Page();
+                page.takeScreenshot(filename);
+            }).catch((err) => {
+                console.error(err);
+            });
+        }
+    },
 
 
     /**
